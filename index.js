@@ -4,7 +4,7 @@ function addtoDo(){
   const inputElement = document.querySelector('.js-name-input')
   const name= inputElement.value
   const dateinputElement = document.querySelector('.js-date-input');
-  const dueDate = dateinputElement.value
+  const dueDate = dateinputElement.value || 'Date not Entered';
   if (name.trim() === '') return;
   todolist.push({name, dueDate});
   localStorage.setItem('todolist',JSON.stringify(todolist));
@@ -13,13 +13,12 @@ function addtoDo(){
 
 function displaytoDO(){
   let todolistHTML='';
-  for (let i =0; i<todolist.length; i++){
-    const todoObject=todolist[i];
+  todolist.forEach(function(todoObject,index){
     const {name, dueDate}=todoObject;
     const html =
     `
     <div>
-    ${i+1}.
+    ${index+1}.
     </div>
     <div>
       ${name}
@@ -28,14 +27,15 @@ function displaytoDO(){
       ${dueDate}
     </div>
     <button onclick="
-    todolist.splice(${i},1);
+    todolist.splice(${index},1);
     localStorage.setItem('todolist', JSON.stringify(todolist));
     displaytoDO();"class="del-btn">Delete</button>`
     todolistHTML+= html;
-  }
+  })
+  
   document.querySelector('.js-todo-container')
     .innerHTML=todolistHTML;
-}
+  }
 function enter(event){
   if (event.key==='Enter'){
     addtoDo(); displaytoDO()
