@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To do list</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1 class="main-head">A TO-DO LIST</h1>
+    <p class="head">MADE BY SAMRIDDHA JUNG PANDE</p>
+    
+    <div class="main-container">
+      <div class="todo-input-grid">
+        <p>S.No.</p>
+        <input class="js-name-input name-input" placeholder="Todo name" onkeydown="enter(event)">
+        <input type="date" class="js-date-input date-input">
+        <button onclick="addtoDo(); displaytoDO()" class="add-btn">Add</button>
+      </div>
+      
+      <div class="js-todo-container todo-grid">
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
