@@ -1,19 +1,30 @@
 const todolist= JSON.parse(localStorage.getItem('todolist'))||[];
+
 displaytoDO();
+
 function addtoDo(){
+
   const inputElement = document.querySelector('.js-name-input')
+
   const name= inputElement.value
+
   const dateinputElement = document.querySelector('.js-date-input');
+
   const dueDate = dateinputElement.value || 'Date not Entered';
+
   if (name.trim() === '') return;
+
   todolist.push({name, dueDate});
+
   localStorage.setItem('todolist',JSON.stringify(todolist));
+  
   inputElement.value='';
+  displaytoDO();
 }
 
 function displaytoDO(){
   let todolistHTML='';
-  todolist.forEach(function(todoObject,index){
+  todolist.forEach((todoObject,index)=>{
     const {name, dueDate}=todoObject;
     const html =
     `
