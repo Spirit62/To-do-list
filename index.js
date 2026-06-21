@@ -1,5 +1,5 @@
 const todolist= JSON.parse(localStorage.getItem('todolist'))||[];
-
+let listTitles=JSON.parse(localStorage.getItem('listTitles'))||[];
 displaytoDO();
 document.querySelector('.js-add-btn').addEventListener('click',()=>{
   addtoDo();
@@ -59,4 +59,31 @@ function enter(event){
   if (event.key==='Enter'){
     addtoDo(); displaytoDO()
   }
+}
+
+const createBtn = document.querySelector('.js-create');
+const listNameInput = document.querySelector('.js-list-name');
+const saveBtn = document.querySelector('.js-save');
+createBtn
+  .addEventListener('click',()=>
+  {
+    document.querySelector('.js-create-container')
+      .classList.add('create-clicked')
+  })
+saveBtn
+  .addEventListener('click',()=>
+  {
+    const trimmedValue = listNameInput.value.trim();
+    if (trimmedValue){
+      document.querySelector('.js-create-container')
+        .classList.remove('create-clicked')
+      listNameInput.value='';
+      listTitles.push(trimmedValue);
+      console.log(listTitles);
+      saveToStorage();
+    }
+  })
+
+function saveToStorage(){
+  localStorage.setItem('listTitles', JSON.stringify(listTitles));
 }

@@ -6,12 +6,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   </head>
   <body>
     <h1 class="main-head">A TO-DO LIST</h1>
     <p class="head">MADE BY SAMRIDDHA JUNG PANDE</p>
-    
+    <div class="js-create-container create-container">
+      <button class="js-create create">+ Create</button>
+      <input class="js-list-name list-name">
+      <button class="js-save save">Save</button>
+    </div>
     <div class="main-container">
+      <div class="js-toggle-lists toggle-lists"></div>
+      <div class="js-list-title list-title"></div>
       <div class="todo-input-grid">
         <p>S.No.</p>
         <input class="js-name-input name-input" placeholder="Todo name" onkeydown="enter(event)">
