@@ -2,7 +2,6 @@
 --primary-bg-color: #1f3044;
 --primary-text-color: #fb9039;
 --secondary-text-color: #646c79;
-
 }
 
 body{
@@ -57,6 +56,36 @@ body{
   background-color: var(--secondary-text-color);
   padding: 30px;
 }
+.names{
+  font-weight:bold;
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.name{
+  background-color: var(--primary-bg-color);
+  font-size: 20px;
+  padding:10px;
+  color:white;
+  flex:1;
+  /* Added these 3 lines so your new title delete buttons look clean! */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.active-list{
+  background-color:lightblue;
+  color:black;
+}
+.list-del-btn{
+  background-color:rgb(209, 52, 52);
+  padding: 0px 6px;
+  border:none;
+  color:white;
+  border-radius:50%;
+  cursor:pointer;
+}
 .todo-grid,
 .todo-input-grid{
   display:grid;
@@ -97,4 +126,8 @@ body{
   font-size:16px;
   cursor:pointer;
   font-weight:bold;
+}
+
+.noShow {
+  display:none;
 }
