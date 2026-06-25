@@ -11,11 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="delete-warning">
+      <p class="delete-warning-message">Are you sure you want to delete listname</p>
+      <button class="delete-confirm">Confirm</button>
+      <button class="delete-cancel">Cancel</button>
+    </div>
     <h1 class="main-head">A TO-DO LIST</h1>
     <p class="head">MADE BY SAMRIDDHA JUNG PANDE</p>
     <div class="js-create-container create-container">
       <button class="js-create create">+ Create</button>
-      <input class="js-list-name list-name" onkeydown="enter(event)">>
+      <input class="js-list-name list-name" onkeydown="enter(event)">
       <button class="js-save save">Save</button>
     </div>
     <div class="js-main-list main-container">

@@ -1,133 +1,214 @@
-:root{
---primary-bg-color: #1f3044;
---primary-text-color: #fb9039;
---secondary-text-color: #646c79;
+:root {
+  --primary-bg-color: #0d1117;     /* Deep slate black */
+  --primary-text-color: #58a6ff;   /* Vibrant electric blue */
+  --secondary-text-color: #161b22; /* Dark secondary container bg */
+  --accent-color: #238636;         /* Success green */
 }
 
-body{
+body {
   font-family: 'Quicksand', sans-serif;
-  padding:10px;
-  margin:0px;
+  padding: 10px;
+  margin: 0px;
   box-sizing: border-box;
   background-color: var(--primary-bg-color);
+  text-align: center;
 }
-.main-head{
-  font-size:40px;
+.delete-warning {
+  background-color: #161b22;       /* Matches var(--secondary-text-color) */
+  border: 1px solid #da3633;       /* Red warning border */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;             /* Spaces it out if kept inline */
+  text-align: center;
+}
+
+.delete-warning-message {
+  color: #f0f6fc;                  /* Light text */
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.delete-confirm {
+  padding: 10px 20px;
+  background-color: #f85149;       /* Bright red warning/delete color */
+  border: none;
   color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
 }
-.head{
-  font-size:20px;
+
+.delete-confirm:hover {
+  background-color: #da3633;       
+}
+
+.delete-cancel {
+  padding: 10px 20px;
+  background-color: #21262d;       
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.delete-cancel:hover {
+  background-color: #30363d;       
+}
+.main-head {
+  font-size: 40px;
+  color: #f0f6fc;
+}
+.head {
+  font-size: 20px;
   margin-bottom: 20px;
   color: var(--primary-text-color);
 }
-.create,.save{
-  padding:10px;
-  background-color: white;
-  border: 2px solid black;
-  border-radius:5px;
-  margin-bottom:30px;
-  font-size:14px;
+.create, .save {
+  padding: 10px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  font-size: 14px;
   transition: all 0.3s;
+  cursor: pointer;
 }
-.save{
-  background-color:var(--secondary-text-color);
-  color:white;
-  border:none;
+.save {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
   padding: 10px 20px;
-  display:none;
+  display: none;
 }
-
-.list-name{
-  padding:10px;
+.list-name {
+  padding: 10px;
   margin: 0px 7px;
-  display:none;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: white;
+  border-radius: 5px;
+  display: none;
 }
-
-.create-clicked .list-name, .create-clicked .save{
-  display:initial;
+.create-clicked .list-name, .create-clicked .save {
+  display: initial;
 }
-.create:hover{
-  opacity:0.8;
+.create:hover {
+  background-color: #30363d;
 }
-.create:active{
-  opacity:0.6;
+.create:active {
+  opacity: 0.6;
 }
-.main-container{
+.main-container {
   background-color: var(--secondary-text-color);
+  border: 1px solid #30363d;
+  border-radius: 8px;
   padding: 30px;
 }
-.names{
-  font-weight:bold;
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
+.names {
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.name {
+  background-color: #21262d;
+  font-size: 20px;
+  padding: 10px;
+  color: #c9d1d9;
+  flex: 1;
+  border: 1px solid #30363d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+.active-list {
+  background-color: var(--primary-text-color);
+  color: #0d1117;
+  border-color: var(--primary-text-color);
+}
+.list-del-btn {
+  background-color: rgba(0, 0, 0, 0.15); 
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: inherit;                        
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.name{
-  background-color: var(--primary-bg-color);
-  font-size: 20px;
-  padding:10px;
-  color:white;
-  flex:1;
-  /* Added these 3 lines so your new title delete buttons look clean! */
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.list-del-btn:hover {
+  background-color: #f85149;            
+  color: white;                         
+  border-color: #f85149;
+  box-shadow: 0 2px 8px rgba(248, 81, 73, 0.4);
 }
-.active-list{
-  background-color:lightblue;
-  color:black;
-}
-.list-del-btn{
-  background-color:rgb(209, 52, 52);
-  padding: 0px 6px;
-  border:none;
-  color:white;
-  border-radius:50%;
-  cursor:pointer;
-}
-.todo-grid,
-.todo-input-grid{
-  display:grid;
+
+.todo-grid, .todo-input-grid {
+  display: grid;
   grid-template-columns: 20px 1fr 150px 100px;
-  column-gap:50px;
-  row-gap:15px;
+  column-gap: 50px;
+  row-gap: 15px;
   align-items: center;
-  color: white;
+  color: #c9d1d9;
 }
 .todo-grid * {
   min-width: 0; 
   word-break: break-all;
-  color: white;
+  color: #c9d1d9;
 }
-.todo-input-grid{
+.todo-input-grid {
   align-items: stretch;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
-.name-input,
-.date-input{
-  padding:10px;
-  font-size:16px;
+.name-input, .date-input {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #1f242c;
+  border: 1px solid #30363d;
+  color: white;
+  border-radius: 5px;
 }
-.add-btn{
-  padding:10px;
-  background-color: var(--primary-bg-color);
-  border:none;
-  color:white;
-  font-weight:bold;
-  font-size:16px;
-  cursor:pointer;
+.add-btn {
+  padding: 10px;
+  background-color: var(--primary-text-color);
+  border: none;
+  color: #0d1117;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
 }
-.del-btn{
-  padding:10px;
-  background-color: rgb(203, 15, 15);
-  border:none;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  font-weight:bold;
+.add-btn:hover {
+  opacity: 0.9;
 }
-
+.del-btn {
+  padding: 10px;
+  background-color: #f85149;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.del-btn:hover {
+  background-color: #da3633;
+}
 .noShow {
-  display:none;
+  display: none;
 }
