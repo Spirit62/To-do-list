@@ -2,7 +2,7 @@
 
 ## Preview
 
-![To Do List Preview](preview.jpeg)
+![To Do List Preview](preview.png)
 ## What It Is
 This is a to do list which helps plan out the events coming up in your life or tracks down the tasks left to finish with proper dates.
 
