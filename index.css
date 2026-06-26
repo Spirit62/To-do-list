@@ -20,6 +20,10 @@ body {
   border-radius: 8px;
   margin-bottom: 20px;             /* Spaces it out if kept inline */
   text-align: center;
+  display:none;
+}
+.active-delete-warning{
+  display:block;
 }
 
 .delete-warning-message {

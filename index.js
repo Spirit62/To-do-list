@@ -7,7 +7,7 @@ document.querySelector('.js-add-btn').addEventListener('click',()=>{
   addtoDo();
 })
 function addtoDo(){
-
+if (listTitles.length === 0) return;
   const inputElement = document.querySelector('.js-name-input')
 
   const name= inputElement.value
@@ -114,20 +114,14 @@ function displayListTitles() {
         displaytoDO();
       })
     })
-  document.querySelectorAll('.js-list-del-btn')
-    .forEach((btn,index)=>{
-      btn.addEventListener('click',(event)=>{
-        event.stopPropagation();
-        listTitles.splice(index,1);
-        activeListIndex = 0;
-        saveToStorage();
-        displayListTitles();
-        displaytoDO();
-      })
+
+  document.querySelectorAll('.js-list-del-btn').forEach((btn, index) => {
+    btn.addEventListener('click', (event) => {
+      event.stopPropagation(); 
+      askDelete(index);
     })
+  })
 
-
-  
 }
 function newList(){
       const trimmedValue = listNameInput.value.trim();
@@ -150,3 +144,26 @@ function newList(){
     newList();
   }
 });
+
+
+function askDelete(index) {
+  const warningBox = document.querySelector('.js-delete-warning');
+  
+  warningBox.innerHTML = `<p class="delete-warning-message">Are you sure you want to delete ${listTitles[index].name}?</p> 
+  <button class="delete-confirm">Confirm</button> 
+  <button class="delete-cancel">Cancel</button>`;
+  
+  warningBox.classList.add('active-delete-warning');
+
+  warningBox.querySelector('.delete-confirm').addEventListener('click', () => {
+    listTitles.splice(index, 1);
+    activeListIndex = 0; 
+    saveToStorage();
+    displayListTitles();
+    displaytoDO();
+    warningBox.classList.remove('active-delete-warning');
+  });
+  warningBox.querySelector('.delete-cancel').addEventListener('click', () => {
+    warningBox.classList.remove('active-delete-warning');
+  });
+}
