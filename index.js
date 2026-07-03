@@ -18,7 +18,7 @@ if (listTitles.length === 0) return;
 
   if (name.trim() === '') return;
 
-  listTitles[activeListIndex].todolist.push({name, dueDate});
+  listTitles[activeListIndex].todolist.push({name, dueDate, isCompleted:false});
 
   saveToStorage();
   
@@ -38,7 +38,7 @@ function displaytoDO(){
 
   let todolistHTML='';
     listTitles[activeListIndex].todolist.forEach((todoObject,index)=>{
-    const {name, dueDate}=todoObject;
+    const { name, dueDate, isCompleted } = todoObject;
     const html =
         `
         <div>
@@ -50,7 +50,10 @@ function displaytoDO(){
         <div>
           ${dueDate}
         </div>
-        <button class="del-btn js-del-btn">Delete</button>`
+        <button class="del-btn js-del-btn">Delete</button>
+        <button class="complete-check js-complete-check ${isCompleted ? 'clicked-complete-check' : ''}">
+          ${isCompleted ? '&#10004;' : ''}
+        </button>`;
     todolistHTML+= html;
   })
   
@@ -65,12 +68,22 @@ function displaytoDO(){
         displaytoDO();
       })
     });
-  }
+
+  document.querySelectorAll('.js-complete-check').forEach((button, index) => {
+    button.addEventListener('click', () => {
+    
+      listTitles[activeListIndex].todolist[index].isCompleted = !listTitles[activeListIndex].todolist[index].isCompleted;
+      saveToStorage();
+      displaytoDO();
+  });
+  });
+}
 function enter(event){
   if (event.key==='Enter'){
     addtoDo(); 
   }
 }
+
 
 const createBtn = document.querySelector('.js-create');
 const listNameInput = document.querySelector('.js-list-name');
@@ -167,3 +180,6 @@ function askDelete(index) {
     warningBox.classList.remove('active-delete-warning');
   });
 }
+
+
+  

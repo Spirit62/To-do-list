@@ -161,10 +161,26 @@ body {
   border-color: #f85149;
   box-shadow: 0 2px 8px rgba(248, 81, 73, 0.4);
 }
+.complete-check{
+  height: 40px;
+  background-color: lightgray;
+  aspect-ratio: 1/1;
+  border-radius:50%;
+  border:none;
+  transition: all 0.3s;
+}
+.complete-check:hover{
+  opacity:0.8;
+}
+
+.clicked-complete-check {
+  background-color: var(--accent-color) !important; /* Turns the circle green */
+  color: white !important;                          /* Turns any text inside white (optional) */
+}
 
 .todo-grid, .todo-input-grid {
   display: grid;
-  grid-template-columns: 20px 1fr 150px 100px;
+  grid-template-columns: 20px 1fr 150px 100px 40px;
   column-gap: 50px;
   row-gap: 15px;
   align-items: center;
