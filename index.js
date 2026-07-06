@@ -41,17 +41,17 @@ function displaytoDO(){
     const { name, dueDate, isCompleted } = todoObject;
     const html =
         `
-        <div>
+        <div class="${isCompleted ? `completed-text` : ''}">
         ${index+1}.
         </div>
-        <div>
+        <div class="${isCompleted ? `completed-text` : ''}">
           ${name}
         </div>
-        <div>
+        <div class="${isCompleted ? `completed-text` : ''}">
           ${dueDate}
         </div>
         <button class="del-btn js-del-btn">Delete</button>
-        <button class="complete-check js-complete-check ${isCompleted ? 'clicked-complete-check' : ''}">
+        <button class="complete-check js-complete-check ${isCompleted ? `clicked-complete-check` : ''}">
           ${isCompleted ? '&#10004;' : ''}
         </button>`;
     todolistHTML+= html;

@@ -174,10 +174,12 @@ body {
 }
 
 .clicked-complete-check {
-  background-color: var(--accent-color) !important; /* Turns the circle green */
-  color: white !important;                          /* Turns any text inside white (optional) */
+  background-color: var(--accent-color) !important; 
+  color: white !important;
 }
-
+.completed-text{
+  text-decoration: line-through;
+}
 .todo-grid, .todo-input-grid {
   display: grid;
   grid-template-columns: 20px 1fr 150px 100px 40px;
