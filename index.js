@@ -97,6 +97,7 @@ function enter(event){
 const createBtn = document.querySelector('.js-create');
 const listNameInput = document.querySelector('.js-list-name');
 const saveBtn = document.querySelector('.js-save');
+const cancelBtn = document.querySelector('.js-cancel')
 let listHTML='';
 createBtn
   .addEventListener('click',()=>
@@ -110,7 +111,11 @@ createBtn
     {
     newList();
     })
-  
+  cancelBtn
+    .addEventListener('click',()=>{
+      document.querySelector('.js-create-container')
+        .classList.remove('create-clicked')
+    })
 
 function saveToStorage(){
   localStorage.setItem('listTitles', JSON.stringify(listTitles));

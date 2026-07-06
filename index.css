@@ -92,6 +92,18 @@ body {
   padding: 10px 20px;
   display: none;
 }
+.cancel{
+  padding: 10px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  transition: all 0.3s;
+  cursor: pointer;
+  display:none;
+}
 .list-name {
   padding: 10px;
   margin: 0px 7px;
@@ -101,7 +113,7 @@ body {
   border-radius: 5px;
   display: none;
 }
-.create-clicked .list-name, .create-clicked .save {
+.create-clicked .list-name, .create-clicked .save, .create-clicked .cancel {
   display: initial;
 }
 .create:hover {
