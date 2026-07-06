@@ -1,6 +1,7 @@
 
 let listTitles=JSON.parse(localStorage.getItem('listTitles'))||[];
 let activeListIndex=0;
+
 displaytoDO();
 displayListTitles();
 document.querySelector('.js-add-btn').addEventListener('click',()=>{
@@ -35,10 +36,14 @@ function displaytoDO(){
   else {
     document.querySelector('.js-main-list').classList.remove('noShow');
   }
-
+  let count = 0;
   let todolistHTML='';
     listTitles[activeListIndex].todolist.forEach((todoObject,index)=>{
     const { name, dueDate, isCompleted } = todoObject;
+    if (isCompleted === true){ 
+      count += 1;
+    }
+   
     const html =
         `
         <div class="${isCompleted ? `completed-text` : ''}">
@@ -56,7 +61,11 @@ function displaytoDO(){
         </button>`;
     todolistHTML+= html;
   })
-  
+  const upperhtml = `<p>You Have Completed : ${count}/${listTitles[activeListIndex].todolist.length} tasks!</p>`;
+  const headElement = document.querySelector('.head');
+  if (headElement) {
+    headElement.innerHTML = upperhtml;
+  }
   
   document.querySelector('.js-todo-container')
     .innerHTML=todolistHTML;
