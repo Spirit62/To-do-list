@@ -94,28 +94,38 @@ function enter(event){
 }
 
 
-const createBtn = document.querySelector('.js-create');
-const listNameInput = document.querySelector('.js-list-name');
-const saveBtn = document.querySelector('.js-save');
-const cancelBtn = document.querySelector('.js-cancel')
-let listHTML='';
-createBtn
-  .addEventListener('click',()=>
-  {
-    document.querySelector('.js-create-container')
-      .classList.add('create-clicked')
-  })
 
-  saveBtn
-    .addEventListener('click',()=>
-    {
+let listNameInput;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const createBtn = document.querySelector('.js-create');
+  listNameInput = document.querySelector('.js-list-name');
+  const saveBtn = document.querySelector('.js-save');
+  const cancelBtn = document.querySelector('.js-cancel');
+  const createContainer = document.querySelector('.js-create-container');
+
+  // If any of these are missing, avoid breaking JS execution.
+  if (!createBtn || !listNameInput || !saveBtn || !cancelBtn || !createContainer) return;
+
+  createBtn.addEventListener('click', () => {
+    createContainer.classList.add('create-clicked');
+  });
+
+  saveBtn.addEventListener('click', () => {
     newList();
-    })
-  cancelBtn
-    .addEventListener('click',()=>{
-      document.querySelector('.js-create-container')
-        .classList.remove('create-clicked')
-    })
+  });
+
+  cancelBtn.addEventListener('click', () => {
+    createContainer.classList.remove('create-clicked');
+  });
+
+  listNameInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      newList();
+    }
+  });
+});
+
 
 function saveToStorage(){
   localStorage.setItem('listTitles', JSON.stringify(listTitles));
