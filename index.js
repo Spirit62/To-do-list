@@ -61,10 +61,16 @@ function displaytoDO(){
         </button>`;
     todolistHTML+= html;
   })
+  const totalTasks = listTitles[activeListIndex].todolist.length;
   const upperhtml = `<p>You Have Completed : ${count}/${listTitles[activeListIndex].todolist.length} tasks!</p>`;
   const headElement = document.querySelector('.head');
   if (headElement) {
     headElement.innerHTML = upperhtml;
+      if (count === totalTasks && totalTasks > 0) {
+        headElement.classList.add('all-completed');
+    } else {
+        headElement.classList.remove('all-completed');
+    }
   }
   
   document.querySelector('.js-todo-container')
@@ -80,12 +86,15 @@ function displaytoDO(){
 
   document.querySelectorAll('.js-complete-check').forEach((button, index) => {
     button.addEventListener('click', () => {
-    
-      listTitles[activeListIndex].todolist[index].isCompleted = !listTitles[activeListIndex].todolist[index].isCompleted;
-      saveToStorage();
-      displaytoDO();
+  
+        listTitles[activeListIndex].todolist[index].isCompleted = !listTitles[activeListIndex].todolist[index].isCompleted;
+        saveToStorage();
+        displaytoDO();
+      
+      
   });
   });
+  
 }
 function enter(event){
   if (event.key==='Enter'){

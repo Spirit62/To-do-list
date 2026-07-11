@@ -173,6 +173,10 @@ body {
   border-color: #f85149;
   box-shadow: 0 2px 8px rgba(248, 81, 73, 0.4);
 }
+
+.all-completed{
+  color:green;
+}
 .complete-check{
   height: 40px;
   background-color: lightgray;
